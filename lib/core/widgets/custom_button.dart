@@ -1,10 +1,11 @@
-
 import 'package:checkout_payment_ui/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, this.onTap, required this.text,
+    super.key,
+    this.onTap,
+    required this.text,
   });
   final void Function()? onTap;
   final String text;
@@ -20,16 +21,15 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-           ),
-           child: Center(
-             child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: Styles.style22,
-              ),
-           ),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: Styles.style22,
+          ),
+        ),
       ),
     );
   }
 }
-

@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:checkout_payment_ui/Features/checkout/presentation/views/thank_you_view.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});
 
@@ -18,49 +16,44 @@ class PaymentDetailsViewBody extends StatefulWidget {
 }
 
 class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
-final GlobalKey<FormState> formKey = GlobalKey();
-AutovalidateMode autovalidateMode =AutovalidateMode.disabled;
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
-    return  CustomScrollView(
-      slivers: [
+    return CustomScrollView(slivers: [
       const SliverToBoxAdapter(
         child: PaymentMethodsListView(),
       ),
       SliverToBoxAdapter(
         child: CustomCreditCard(
-          formKey: formKey, autovalidateMode: autovalidateMode,
-          ),
+          formKey: formKey,
+          autovalidateMode: autovalidateMode,
+        ),
       ),
-       SliverFillRemaining(
+      SliverFillRemaining(
         hasScrollBody: false,
         child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 12,left: 16,right: 16),
-            child: CustomButton(
-              onTap: () {
-                   if(formKey.currentState!.validate())
-                {
-                  formKey.currentState!.save();
-                  log('payment' as num);
-                }else
-                {Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return ThankYouView();
-                }));
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {
-                    
-                  });
-                }
-              },
-              text: 'payment',
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 12, left: 16, right: 16),
+              child: CustomButton(
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    log('payment' as num);
+                  } else {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return ThankYouView();
+                    }));
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                text: 'payment',
               ),
-          )),
+            )),
       ),
-      ]
-    
-    );
+    ]);
   }
 }
-

@@ -8,20 +8,20 @@ class PaymentDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-       appBar: AppBar(  
+    return Scaffold(
+      appBar: AppBar(
         leading: Center(
           child: SvgPicture.asset(
             'lib/Features/checkout/presentation/assets/images/arrow.svg',
-            ),
-            ),
-      elevation: 0,
+          ),
+        ),
+        elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text(
           'Payment Details ',
           textAlign: TextAlign.center,
-          style:Styles.style25 ,
+          style: Styles.style25,
         ),
       ),
       body: const PaymentDetailsViewBody(),

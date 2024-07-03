@@ -1,23 +1,22 @@
 import 'package:checkout_payment_ui/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class TotalPrice extends StatelessWidget {
-  const TotalPrice({super.key, required this.title, required this.value});
+class PaymentItemInfo extends StatelessWidget {
+  const PaymentItemInfo({super.key, required this.title, required this.value});
   final String title, value;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
           textAlign: TextAlign.center,
-          style: Styles.style24,
+          style: Styles.style18,
         ),
-        Spacer(),
         Text(
           value,
-          textAlign: TextAlign.center,
-          style: Styles.style24,
+          style: Styles.styleBold18,
         ),
       ],
     );
